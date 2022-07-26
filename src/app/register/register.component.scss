@@ -1,0 +1,74 @@
+.container{
+    background-image: url('../dist/imgs/loginBackground.jpg');
+    margin: 0;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size:cover;
+    background-repeat: no-repeat
+}
+
+
+.login-form{
+    width: 380px !important;
+    height: 550px !important;
+    background:white;
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    margin-top:5%;
+    margin-left: 2%;
+}
+
+
+
+input{
+    width:70% !important;
+    margin: auto;
+    margin-left: 15% !important;
+}
+
+.icon{
+    text-align: center;
+    font-size: 325% !important;
+}
+
+i{
+    margin-bottom: 3% !important;
+    color: #DCDCDC;
+}
+
+h5{
+    color: #DCDCDC !important;
+    margin-bottom: 3% !important;
+}
+
+.title{
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 10%;
+}
+
+// ::placeholder{
+//     color: #DCDCDC !important;
+// }
+
+textarea{
+    background: #333 !important;
+    color: white !important;
+    border:none !important; 
+}
+button{
+    width: 67% !important;
+    margin: auto;
+    margin-left: 17% !important;
+}
+
+::-ms-reveal {
+    filter: invert(100%);
+  }
