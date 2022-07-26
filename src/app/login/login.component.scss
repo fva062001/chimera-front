@@ -1,0 +1,62 @@
+.container{
+    background-image: url('../dist/imgs/loginBackground1.jpg');
+    margin: 0;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 100vw;
+    background-size:cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-form{
+    width: 25% !important;
+    height: 60vh !important;
+    background:white;
+    backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    border-radius: 20px;
+}
+
+
+
+input{
+    width:70% !important;
+    margin: auto;
+    margin-left: 15% !important;
+}
+
+.icon{
+    text-align: center;
+    font-size: 325% !important;
+}
+
+i{
+    margin-bottom: 3% !important;
+    color: #DCDCDC;
+}
+
+h5{
+    color: #DCDCDC !important;
+    margin-bottom: 3% !important;
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 10%;
+}
+
+button{
+    width: 70% !important;
+    margin: auto;
+    margin-bottom: 15px;
+}

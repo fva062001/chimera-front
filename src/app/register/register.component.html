@@ -1,7 +1,7 @@
 <div class="container">
     <div class="login-form text-center">
+        <div class="row">
         <form [formGroup]="registerForm"  (ngSubmit)="createUser($event)">
-            <div class="row">
                 <div class="col-12 title">
                     <h1 style="color: black;">Register</h1>
                 </div>
@@ -16,8 +16,10 @@
                       </div>
                 </div>
                 <button [disabled]="registerForm.invalid" class="btn btn-danger" type="submit">Register</button>
-            </div>
         </form>
-        <button  class="btn btn-primary">Back</button>
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="goBack()">Back</button>
+        </div>
+    </div>
     </div>
 </div>

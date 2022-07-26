@@ -7,13 +7,16 @@
     min-height: 100vh;
     min-width: 100vw;
     background-size:cover;
-    background-repeat: no-repeat
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 .login-form{
-    width: 380px !important;
-    height: 550px !important;
+    width: 25% !important;
+    height: 60vh !important;
     background:white;
     backdrop-filter: blur(10px);
     color: white;
@@ -21,8 +24,7 @@
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
-    margin-top:5%;
-    margin-left: 2%;
+    border-radius: 20px;
 }
 
 
@@ -49,26 +51,12 @@ h5{
 }
 
 .title{
-    text-align: left;
-    margin-left: 15%;
+    text-align: center;
     margin-bottom: 10%;
 }
 
-// ::placeholder{
-//     color: #DCDCDC !important;
-// }
-
-textarea{
-    background: #333 !important;
-    color: white !important;
-    border:none !important; 
-}
 button{
-    width: 67% !important;
+    width: 70% !important;
     margin: auto;
-    margin-left: 17% !important;
+    margin-bottom: 15px;
 }
-
-::-ms-reveal {
-    filter: invert(100%);
-  }

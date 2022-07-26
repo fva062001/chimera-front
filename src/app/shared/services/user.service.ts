@@ -18,4 +18,8 @@ export class UserService {
   postUser(body:user):Observable<any>{
     return this.http.post<any>(this.apiURL+'users',body);
   }
+
+  loginUser(body:user):Observable<JSON>{
+    return this.http.post<JSON>(this.apiURL+'users/login',body);
+  }
 }

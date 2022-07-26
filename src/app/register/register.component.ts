@@ -3,7 +3,7 @@ import { user } from '../shared/models/user.model';
 import { UserService } from '../shared/services/user.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -11,7 +11,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http:UserService, private formBuilder:FormBuilder) { }
+  constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
 
   ngOnInit(): void {
   }
@@ -47,4 +47,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  goBack():void{
+    this.route.navigate(['/','login']);
+  }
 }

@@ -1,1 +1,25 @@
-login here
+<div class="container">
+    <div class="login-form text-center">
+        <div class="row">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="col-12 title">
+                    <h1 style="color: black;">Login</h1>
+                </div>
+                <div class="col-12">
+                    <div class="mb-4">
+                        <input type="text" id="username" class="form-control" placeholder="Username" formControlName="username"/>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-outline mb-4">
+                        <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password"/>
+                      </div>
+                </div>
+                <button class="btn btn-danger" type="submit">Register</button>
+        </form>
+        <div class="col-12">
+            <button class="btn btn-primary" (click)="goBack()">Back</button>
+        </div>
+    </div>
+    </div>
+</div>
