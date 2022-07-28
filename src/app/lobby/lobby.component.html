@@ -1,4 +1,25 @@
-<button (click)="goLogin(false)">Take me to login</button>
-<button (click)="goLogin(true)">Take me to Register</button>
+<app-header
+    (toCatalog)="changeModule($event)"
+    (toAdd)="changeModule($event)"
+    (toCart)="changeModule($event)"
+    (toHistory)="changeModule($event)"
+    (toLogin)="changeModule($event)"
+    (toRegister)="changeModule($event)"
+></app-header>
+
+<app-add *ngIf="add"></app-add>
+<app-catalog *ngIf="catalog"></app-catalog>
+<app-cart *ngIf="cart"></app-cart>
+<app-history *ngIf="history"></app-history>
+
+
+<ng-template [ngIf]="lobby">
+
+<h1>Welcome back {{username}}</h1>
+
+
+</ng-template>
+
+
 <router-outlet></router-outlet>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { user } from '../shared/models/user.model';
 import { UserService } from '../shared/services/user.service';
 import { FormBuilder } from '@angular/forms';
@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
-
+  @Output('goHome') goHome = new EventEmitter<number>();
+  @Output('goRegister') goRegister = new EventEmitter<number>();
+  @Output('username') sendUser = new EventEmitter<string | null>();
 
   loginForm = this.formBuilder.group({
     username:[''],
@@ -30,7 +32,8 @@ export class LoginComponent implements OnInit {
       password: user.password
     } 
     this.http.loginUser(finalUser).subscribe(data =>{
-      this.route.navigate(['/','lobby']);
+      this.goHome.emit(2);
+      this.sendUser.emit(finalUser.username);
     }, error =>{
       Swal.fire({
         title:'Error!',
@@ -38,10 +41,18 @@ export class LoginComponent implements OnInit {
         icon:'error',
         confirmButtonText:'Ok'
       })
+      this.loginForm.reset();
     })
   }
 
-  goBack(){
-    this.route.navigate(['/','lobby']);
+  goBack(data:number){
+    if(data == 0)
+    {
+      this.goHome.emit(2);
+    }
+    else if(data == 1)
+    {
+      this.goRegister.emit(1);
+    }
   }
 }

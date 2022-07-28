@@ -1,1 +1,16 @@
+<app-lobby *ngIf="main"  
+(goLogin)="changeRoute($event)"
+(goRegister)="changeRoute($event)"
+[username]="username"
+></app-lobby>
+<app-register *ngIf="register"
+    (goLogin)="changeRoute($event)"
+    (goHome)="changeRoute($event)"
+></app-register>
+<app-login *ngIf="login"
+    (goHome)="changeRoute($event)"
+    (goRegister)="changeRoute($event)"
+    (username)='putUser($event)'
+></app-login>
+
 <router-outlet></router-outlet>

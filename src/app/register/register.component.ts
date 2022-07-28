@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { user } from '../shared/models/user.model';
 import { UserService } from '../shared/services/user.service';
 import Swal from 'sweetalert2';
@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
+
+  @Output('goHome') goHome = new EventEmitter<number>();
+  @Output('goLogin') goLogin = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
@@ -47,7 +50,14 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  goBack():void{
-    this.route.navigate(['/','login']);
+  goBack(data:number){
+    if(data == 0)
+    {
+      this.goHome.emit(2);
+    }
+    else if(data == 1)
+    {
+      this.goLogin.emit(0);
+    }
   }
 }
