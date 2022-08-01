@@ -5,6 +5,7 @@
     (toHistory)="changeModule($event)"
     (toLogin)="changeModule($event)"
     (toRegister)="changeModule($event)"
+    (toHome)="changeModule($event)"
 ></app-header>
 
 <app-add *ngIf="add"></app-add>
@@ -15,11 +16,50 @@
 
 <ng-template [ngIf]="lobby">
 
-<h1>Welcome back {{username}}</h1>
+<h3>Welcome back {{username}}</h3>
+<div  *ngIf="!exist" class="container text-center error">
+    <h1>We are out of stock, <br> come back later</h1>
+    <img src="/assets/images/Error.jpg" width="30%"  alt="Error Image">
+</div>
+
+<div class="container-fluid">
+    <div *ngFor="let car of catalogList" class="card" style="width: 18rem;">
+        <img src="{{car.image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{car.brand}} {{car.model}} {{car.year}}</h5>
+          <p class="card-text">USD$ {{car.price}}</p>
+          <a class="btn btn-primary" (click)="open(content)">Information</a>
+        </div>
+        <ng-template  #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">{{car.brand}} {{car.model}} {{car.year}}</h4>
+              <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+            </div>
+            <div class="modal-body">
+                <img src="{{car.image}}" style="position: block; border-radius: 10px; margin-bottom: 5px;" width="100%" alt="...">
+                <h4>Information</h4>
+                <ul>
+                    <li><strong>Precio: </strong>{{car.price}}</li>
+                    <li><strong>Color: </strong>{{car.color}}</li>
+                    <li><strong>Traction: </strong>{{car.traction}}</li>
+                </ul>
+                <h4>Motor</h4>
+                <ul>
+                    <li><strong>Type: </strong>{{car.motor.type}}</li>
+                    <li><strong>HP: </strong>{{car.motor.hp}}</li>
+                    <li><strong>Turbo: </strong>{{car.motor.turbo}}</li>
+                    <li><strong>Cylinders: </strong>{{car.motor.cylinders}}</li>
+                    <li><strong>Motor Liters: </strong>{{car.motor.motor_liters}}</li>
+                </ul>
+                
+            </div>
+            <button class="btn btn-primary cart" (click)="toCart(car)">Cart</button>
+          </ng-template>  
+        
+      </div>
 
 
-</ng-template>
-
+</div>
 
 <router-outlet></router-outlet>
 

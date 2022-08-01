@@ -7,8 +7,8 @@ import { Sweetalert2ModuleConfig } from '@sweetalert2/ngx-sweetalert2';
 })
 export class AppComponent {
   title = 'Chimera Page';
-  login:boolean = false;
-  main:boolean = true;
+  login:boolean = true;
+  main:boolean = false;
   register:boolean = false;
   username:string = 'User';
   changeRoute(data:number){

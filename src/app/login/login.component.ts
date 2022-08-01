@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
   @Output('username') sendUser = new EventEmitter<string | null>();
 
   loginForm = this.formBuilder.group({
-    username:[''],
-    password:['']
+    username:['admin'],
+    password:['12345']
   });
   ngOnInit(): void {
   }
@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   login():void{
     const user = this.loginForm.value;
-    console.log(user);
     let finalUser:user ={
       username: user.username,
       password: user.password
@@ -46,11 +45,7 @@ export class LoginComponent implements OnInit {
   }
 
   goBack(data:number){
-    if(data == 0)
-    {
-      this.goHome.emit(2);
-    }
-    else if(data == 1)
+    if(data == 1)
     {
       this.goRegister.emit(1);
     }

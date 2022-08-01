@@ -5,7 +5,6 @@
 ></app-lobby>
 <app-register *ngIf="register"
     (goLogin)="changeRoute($event)"
-    (goHome)="changeRoute($event)"
 ></app-register>
 <app-login *ngIf="login"
     (goHome)="changeRoute($event)"

@@ -14,6 +14,8 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { AddComponent } from './add/add.component';
 import { CartComponent } from './cart/cart.component';
 import { HistoryComponent } from './history/history.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { HistoryComponent } from './history/history.component';
     HttpClientModule,
     SweetAlert2Module,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
 
-  @Output('goHome') goHome = new EventEmitter<number>();
   @Output('goLogin') goLogin = new EventEmitter<number>();
 
   ngOnInit(): void {
@@ -51,11 +50,7 @@ export class RegisterComponent implements OnInit {
   }
 
   goBack(data:number){
-    if(data == 0)
-    {
-      this.goHome.emit(2);
-    }
-    else if(data == 1)
+    if(data == 1)
     {
       this.goLogin.emit(0);
     }

@@ -19,14 +19,14 @@ export class HeaderComponent implements OnInit {
   @Output('toHistory') goHistory = new EventEmitter<string>();
   @Output('toLogin') goLogin = new EventEmitter<string>();
   @Output('toRegister') goRegister = new EventEmitter<string>();
-
+  @Output('toHome') goHome =  new EventEmitter<string>();
 
   //Method to send persons to respective zone
   goTo(caseNumber:number):void{
 
     switch(caseNumber){
       case 1:
-      this.route.navigate(['/','lobby']);
+        this.goHome.emit('home');
       break;
       case 2:
         this.goCatalog.emit('catalog');

@@ -1,14 +1,17 @@
 export interface car{
-    id: number
-    model: string,
+    image:string,
+    model:string,
     brand: string,
-    year: string,
+    year: number,
     price: number,
     color: string,
     traction: string,
-    type: string,
-    hp: number,
-    turbo: number,
-    cylinders: number,
-    motor_liters: number 
+    motor: {
+      type: string,
+      hp: string,
+      turbo: boolean,
+      cylinders:number,
+      motor_liters: number
+    },
+    seller_id: number
 }
