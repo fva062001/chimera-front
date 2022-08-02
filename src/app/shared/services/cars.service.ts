@@ -17,7 +17,9 @@ export class CarsService {
   }
 
 
-
+  getCatalogById(userID:string):Observable<any>{
+    return this.http.get<any>(this.apiURL+ `cars/list/${userID}`);
+  }
 
 
 

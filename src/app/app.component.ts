@@ -11,6 +11,7 @@ export class AppComponent {
   main:boolean = false;
   register:boolean = false;
   username:string = 'User';
+  userId:number = 0;
   changeRoute(data:number){
     switch(data){
       case 0:
@@ -35,6 +36,10 @@ export class AppComponent {
   }
 
   putUser(data:any){
-    this.username = data;
+    console.log(data);
+    this.username = data.username;
+  }
+  putUserId(data:number){
+    this.userId = data;
   }
 }

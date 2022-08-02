@@ -4,7 +4,7 @@ import { car } from '../shared/models/car.model';
 import { CarsService } from '../shared/services/cars.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from '../shared/services/cart.service';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lobby',
@@ -23,6 +23,7 @@ export class LobbyComponent implements OnInit {
   closeResult = '';
 
   @Input('username') username:string = 'user';
+  @Input('userId') userId = 0;
   @Output('goLogin') goLogin = new EventEmitter<number>();
   @Output('goRegister') goRegister = new EventEmitter<number>();
   constructor(private route:Router,private carService:CarsService, private modalService:NgbModal, private cartService:CartService) { }
@@ -58,6 +59,12 @@ export class LobbyComponent implements OnInit {
     this.cartService.addToCart(data);
     this.cartService.addPrice(data.price);
     this.modalService.dismissAll();
+    Swal.fire({
+      title:'Added',
+      text:`The car has been added to the cart`,
+      icon:'success',
+      confirmButtonText:'Got it'
+    })
   }
 
   changeModule(data:any){

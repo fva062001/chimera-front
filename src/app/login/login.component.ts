@@ -14,11 +14,12 @@ export class LoginComponent implements OnInit {
   constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
   @Output('goHome') goHome = new EventEmitter<number>();
   @Output('goRegister') goRegister = new EventEmitter<number>();
-  @Output('username') sendUser = new EventEmitter<string | null>();
+  @Output('username') sendUser = new EventEmitter<user>();
+  @Output('userId') sendId = new EventEmitter<number>();
 
   loginForm = this.formBuilder.group({
     username:['admin'],
-    password:['12345']
+    password:['12345'],
   });
   ngOnInit(): void {
   }
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
     } 
     this.http.loginUser(finalUser).subscribe(data =>{
       this.goHome.emit(2);
-      this.sendUser.emit(finalUser.username);
+      this.sendUser.emit(finalUser);
+      this.sendId.emit(data.user.id);
     }, error =>{
       Swal.fire({
         title:'Error!',

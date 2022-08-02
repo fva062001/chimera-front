@@ -12,7 +12,8 @@ export class CartService {
 
   addPrice(price:any)
   {
-    this.price = this.price + price;
+    const totalPrice = parseFloat(price) * 1000;
+    this.price = this.price + totalPrice;
   }
 
   addToCart(data:car){

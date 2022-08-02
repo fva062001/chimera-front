@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { car } from '../shared/models/car.model';
 import { CartService } from '../shared/services/cart.service';
 @Component({
@@ -9,13 +9,11 @@ import { CartService } from '../shared/services/cart.service';
 export class CartComponent implements OnInit {
 
   constructor(private cartService:CartService) { }
-
   cart:car[] = []
   total:number = 0;
   ngOnInit(): void {
-    this.cart = this.cartService.cart;
-    this.total = this.cartService.price;
+      this.cart = this.cartService.cart;
+      this.total = this.cartService.price;
   }
-
 
 }

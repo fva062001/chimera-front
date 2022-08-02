@@ -2,6 +2,7 @@
 (goLogin)="changeRoute($event)"
 (goRegister)="changeRoute($event)"
 [username]="username"
+[userId]="userId"
 ></app-lobby>
 <app-register *ngIf="register"
     (goLogin)="changeRoute($event)"
@@ -10,6 +11,6 @@
     (goHome)="changeRoute($event)"
     (goRegister)="changeRoute($event)"
     (username)='putUser($event)'
+    (userId)="putUserId($event)"
 ></app-login>
 
-<router-outlet></router-outlet>
