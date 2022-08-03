@@ -12,34 +12,44 @@ export class AppComponent {
   register:boolean = false;
   username:string = 'User';
   userId:number = 0;
+  admin:boolean = false;
   changeRoute(data:number){
     switch(data){
       case 0:
         this.main = false;
         this.register = false;
         this.login = true;
+        this.admin = false;
         break;
 
       case 1:
         this.main = false;
         this.register = true;
         this.login = false;
+        this.admin = false;
         break;
       
       case 2:
         this.main = true;
         this.login = false;
         this.register = false;
+        this.admin = false;
+        break;
+      case 3:
+        this.main = false;
+        this.login = false;
+        this.register = false;
+        this.admin = true;
         break;
     }
 
   }
 
   putUser(data:any){
-    console.log(data);
     this.username = data.username;
   }
   putUserId(data:number){
     this.userId = data;
+    console.log(data);
   }
 }

@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(private http:UserService, private formBuilder:FormBuilder, private route:Router) { }
 
   @Output('goLogin') goLogin = new EventEmitter<number>();
+  @Output('userId') userID = new EventEmitter<number>();
 
   ngOnInit(): void {
   }
@@ -38,6 +39,7 @@ export class RegisterComponent implements OnInit {
         confirmButtonText:'Entendido'
 
       })
+      this.userID.emit(data.id);
     }, error =>{
       Swal.fire({
         title:'Error!',

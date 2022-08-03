@@ -16,6 +16,7 @@ import { CartComponent } from './cart/cart.component';
 import { HistoryComponent } from './history/history.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CatalogComponent,
     AddComponent,
     CartComponent,
-    HistoryComponent
+    HistoryComponent,
+    AdminComponent
     ],
   imports: [
     BrowserModule,

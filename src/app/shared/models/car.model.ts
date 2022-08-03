@@ -1,5 +1,5 @@
 export interface car{
-    image:string,
+    image:any,
     model:string,
     brand: string,
     year: number,
@@ -8,7 +8,7 @@ export interface car{
     traction: string,
     motor: {
       type: string,
-      hp: string,
+      hp: number,
       turbo: boolean,
       cylinders:number,
       motor_liters: number

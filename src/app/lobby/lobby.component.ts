@@ -67,10 +67,20 @@ export class LobbyComponent implements OnInit {
     })
   }
 
+  resetTable(){
+    this.cart = false;
+    setTimeout(()=>{
+      this.cart = true;
+    }, 250)
+  }
   changeModule(data:any){
     switch(data){
       case 'add':
-
+        this.add = true;
+        this.catalog = false;
+        this.cart = false;
+        this.history = false;
+        this.lobby= false;
       break;
 
       case 'catalog':
@@ -86,7 +96,11 @@ export class LobbyComponent implements OnInit {
       break;
 
       case 'history':
-
+        this.add = false;
+        this.catalog = false;
+        this.cart = false;
+        this.history = true;
+        this.lobby= false;
       break;
       case 'home':
         this.add = false;

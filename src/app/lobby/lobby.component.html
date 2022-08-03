@@ -8,10 +8,10 @@
     (toHome)="changeModule($event)"
 ></app-header>
 
-<app-add *ngIf="add"></app-add>
+<app-add [userID]="userId" *ngIf="add"></app-add>
 <app-catalog *ngIf="catalog"></app-catalog>
-<app-cart *ngIf="cart"></app-cart>
-<app-history *ngIf="history"></app-history>
+<app-cart (clearBasket)="resetTable()" *ngIf="cart"></app-cart>
+<app-history [userId]="userId" *ngIf="history"></app-history>
 
 
 <ng-template [ngIf]="lobby">

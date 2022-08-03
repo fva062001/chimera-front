@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CarsService } from '../shared/services/cars.service';
 import { car } from '../shared/models/car.model';
 @Component({
@@ -8,10 +8,14 @@ import { car } from '../shared/models/car.model';
 })
 export class HistoryComponent implements OnInit {
 
+  @Input('userId') userId:number = 0;
   constructor(private carService:CarsService) { }
-  private catalog: car[] = [];
+  public catalog: any[] = [];
   ngOnInit(): void {
-    this.catalog = this.carService.getCatalogById()
+    this.carService.getCatalogById(this.userId).subscribe(data =>{
+      this.catalog = data;
+      console.log(data);
+    })
   }
 
 }

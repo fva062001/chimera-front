@@ -1,1 +1,149 @@
-<p>add works!</p>
+<form (ngSubmit)="carRegister()"  [formGroup]="myForm" enctype="multipart/form-dataimage.png">
+<div class="container mt-5 mb-5 d-flex justify-content-center">
+    <div class="card px-1 py-4">
+        <div class="card-body">
+            <h6 class="information mt-4">Please provide the car information below</h6>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="brand" type="text" class="form-control" placeholder="Car Brand">
+                            <span class="text-danger d-block" *ngIf="brand?.invalid && brand?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="model" type="text" class="form-control" placeholder="Car Model">
+                            <span class="text-danger d-block" *ngIf="model?.invalid && model?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="year" type="number" class="form-control" placeholder="Car Year">
+                            <span class="text-danger d-block" *ngIf="year?.invalid && year?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="price" type="number" class="form-control" placeholder="Car Price">
+                            <span class="text-danger d-block" *ngIf="price?.invalid && price?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="color" type="text" class="form-control" placeholder="Car Color">
+                            <span class="text-danger d-block" *ngIf="color?.invalid && color?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="traction" type="text" class="form-control" placeholder="Car Traction">
+                            <span class="text-danger d-block" *ngIf="traction?.invalid && traction?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="type" type="text" class="form-control" placeholder="Car Type">
+                            <span class="text-danger d-block" *ngIf="type?.invalid && type?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="hp" type="number" class="form-control" placeholder="Car HP">
+                            <span class="text-danger d-block" *ngIf="hp?.invalid && hp?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="cylinders" type="number" class="form-control" placeholder="Car Cylinders">
+                            <span class="text-danger d-block" *ngIf="cylinders?.invalid && cylinders?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="motor_liters" type="number" class="form-control" placeholder="Car Motor Liters">
+                            <span class="text-danger d-block" *ngIf="motor_liters?.invalid && motor_liters?.touched">You need to fill this field</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;" class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="form-check">
+                                <input formControlName="turbo" class="form-check-input" type="checkbox" value="true" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Car has turbo?
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <input formControlName="image" type="file" class="form-control" placeholder="Car Photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class=" d-flex flex-column text-center px-5 mt-3 mb-3"> <small class="agree-text">By Adding this car you're accepting the Terms and Conditions</small> 
+                <a href="#" class="terms">Terms & Conditions</a> 
+            </div> 
+            <button [disabled]="myForm.invalid" class="btn btn-primary btn-block confirm-button">Confirm</button>
+        </div>
+    </div>
+</div>
+
+</form>

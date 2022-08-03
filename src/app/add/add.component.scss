@@ -1,0 +1,45 @@
+body{
+    background-color:#FFEBEE
+}
+
+.card{
+    width:400px;
+    background-color:#fff;
+    border:none;
+    border-radius: 12px
+}
+
+label.radio input:checked+span{
+    border-color: #039BE5;
+    background-color: #81D4FA;
+    color: #fff;
+    border-radius: 9px;
+    height: 48px;
+    line-height: 27px
+}
+
+.form-control{
+    margin-top: 10px;
+    border: 2px solid #eee;
+    border-radius: 10px
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border: 2px solid #039BE5
+}
+
+.agree-text{
+    font-size: 12px
+}
+
+.terms{
+    font-size: 12px;
+    text-decoration: none;
+    color: #039BE5
+}
+
+.confirm-button{
+    height: 50px;
+    border-radius: 10px
+}

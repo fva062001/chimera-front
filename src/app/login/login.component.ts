@@ -35,6 +35,10 @@ export class LoginComponent implements OnInit {
       this.goHome.emit(2);
       this.sendUser.emit(finalUser);
       this.sendId.emit(data.user.id);
+      if(data.user.isAdmin == true){
+
+        this.goHome.emit(3);
+      }
     }, error =>{
       Swal.fire({
         title:'Error!',
