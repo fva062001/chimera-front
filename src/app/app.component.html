@@ -14,6 +14,8 @@
     (userId)="putUserId($event)"
 ></app-login>
 
-<app-admin *ngIf="admin">
+<app-admin *ngIf="admin"
+    (refresh)="refreshAdmin($event)"
+    (goHome)="changeRoute($event)"    >
 </app-admin>
 

@@ -26,7 +26,7 @@
     <h3>Total price</h3>
     <h4>USD {{total | currency:'USD'}}</h4>
     <div class="d-grid gap-2" style="width: 65%; margin: 0 auto !important;">
-      <button class="btn btn-primary" style="margin:0 auto;" type="button"><i class="fa-solid fa-bag-shopping"></i></button>
+      <button class="btn btn-primary" (click)="buy()" style="margin:0 auto;" type="button"><i class="fa-solid fa-bag-shopping"></i></button>
       <button class="btn btn-secondary" (click)="clearBasket()" style="margin:0 auto;" type="button"><i class="fa-solid fa-trash-can"></i></button>
     </div>
 </footer>

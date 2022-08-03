@@ -45,6 +45,14 @@ export class AppComponent {
 
   }
 
+  refreshAdmin(data:boolean){
+    this.admin = false;
+    setTimeout(() => {
+      this.admin = true}
+      , 250);
+  }
+  
+
   putUser(data:any){
     this.username = data.username;
   }

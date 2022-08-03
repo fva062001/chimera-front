@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router'
 import Swal from 'sweetalert2/dist/sweetalert2.js'
@@ -15,9 +15,10 @@ import { CarsService } from '../shared/services/cars.service';
 export class AddComponent implements OnInit {
 
   @Input('userID') userID:number = 0;
+  @ViewChild('file') file: any;
   myForm:FormGroup;
 
-  tempCar:car = {    
+  tempCar:any = {    
     image:"",
     model:"",
     brand: "",
@@ -28,7 +29,7 @@ export class AddComponent implements OnInit {
     motor: {
       type: 'string',
       hp: 0,
-      turbo: false,
+      turbo: 'false',
       cylinders:0,
       motor_liters: 0
     },
@@ -36,7 +37,6 @@ export class AddComponent implements OnInit {
 
   constructor(private router:Router,private fb:FormBuilder, private app:CarsService){
     this.myForm = this.fb.group({
-      image:[[Validators.required]],
       model: ['',[Validators.required]],
       brand:  ['',[Validators.required]],
       year:  ['',[Validators.required]],  
@@ -55,13 +55,14 @@ export class AddComponent implements OnInit {
   }
 
   //? Listo
-  carRegister()
+  async carRegister()
   {
-    let tempCarPost:any = this.myForm.value;
-    console.log(tempCarPost.image[0]);
-    
+    let tempCarPost:any = this.myForm.value;    
     this.tempCar.brand  = tempCarPost.brand;
-    this.tempCar.image = tempCarPost.image[0];
+    let image:any = await  this.getBase64(this.file.nativeElement.files[0]);
+    let final = image.toString().split(',')[1];
+    
+    this.tempCar.image = final;
     this.tempCar.model = tempCarPost.model;
     this.tempCar.year = tempCarPost.year;
     this.tempCar.price = tempCarPost.price;
@@ -71,8 +72,17 @@ export class AddComponent implements OnInit {
     this.tempCar.motor.hp = tempCarPost.hp;
     this.tempCar.motor.cylinders = tempCarPost.cylinders;
     this.tempCar.motor.motor_liters = tempCarPost.motor_liters;
-    this.tempCar.motor.turbo = tempCarPost.turbo;
+    if(tempCarPost.turbo == true)
+    { 
+      
+      this.tempCar.motor.turbo = 1;
+    }
+    else
+    {
+      this.tempCar.motor.turbo = 0;
+    }
     this.tempCar.seller_id = this.userID;
+    console.log(this.tempCar);
       this.app.addCar(this.tempCar).subscribe(data =>{        
         Swal.fire({
           title:'Thank you!',
@@ -82,11 +92,7 @@ export class AddComponent implements OnInit {
 
         })          
         this.myForm.reset();
-    },error => {
-      console.log(error.status);
-      
-      if(error.status == 400)
-      {
+    },error => {      
         Swal.fire({
           title:'Error!',
           text:'Car could not be added',
@@ -94,7 +100,6 @@ export class AddComponent implements OnInit {
           confirmButtonText:'Ok'
         })
         this.myForm.reset();
-      }
     })
   }
 
@@ -130,5 +135,15 @@ export class AddComponent implements OnInit {
   }
   get turbo(){
     return this.myForm.get('turbo');
+  }
+
+
+  getBase64(file:any) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
   }
 }
