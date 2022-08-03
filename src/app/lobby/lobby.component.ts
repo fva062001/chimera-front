@@ -108,6 +108,13 @@ export class LobbyComponent implements OnInit {
         this.cart = false;
         this.history = false;
         this.lobby= true;
+
+        this.carService.getCatalog().subscribe(data =>{
+          this.catalogList = data.data;
+          this.exist = true;
+        },error =>{
+          this.exist = false;
+        })
       break;
       case 'login':
         this.goLogin.emit(0);

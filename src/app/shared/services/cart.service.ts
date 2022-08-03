@@ -24,12 +24,5 @@ export class CartService {
   clearCart(){
     this.cart = [];
     this.price = 0;
-    Swal.fire({
-      title:'Important!',
-      text:`Cart has been deleted`,
-      icon:'info',
-      confirmButtonText:'Entendido'
-
-    })
   }
 }
